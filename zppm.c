@@ -61,7 +61,7 @@ main(void)
 
     /* Go back and rewrite the header. */
     uint64_t height = bytes_in / (3 * IMAGE_WIDTH);
-    sprintf(bufin, "P6\n%-6d\n%-10" PRIu64 "\n255\n", IMAGE_WIDTH, height);
+    sprintf(bufin, "P6\n%-6d %-10" PRIu64 "\n255\n", IMAGE_WIDTH, height);
     uint32_t adler = adler32(adler32(0, 0, 0), (void *)bufin, HEADER_SIZE);
     z_stream zh = {
         .next_in = (void *)bufin,
